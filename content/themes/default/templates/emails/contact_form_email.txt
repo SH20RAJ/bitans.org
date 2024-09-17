@@ -1,0 +1,13 @@
+{__("Hi")},
+
+{__("You have a new email message")}
+
+{__("Email Subject")}: {$subject}
+
+{__("Sender Name")}: {$name}
+
+{__("Sender Email")}: {$email}
+
+{__("Email Message")}: {$message}
+
+{__($system['system_title'])} {__("Team")}

@@ -1,0 +1,6 @@
+{
+ "name": "rcrop",
+ "version": "1.0.0",
+ "description": "Responsive Cropper is a JQuery plugin that lets you select an area from an image and prepare crop information to send it to the server.",
+ "license": "MIT"
+}

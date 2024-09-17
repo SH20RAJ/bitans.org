@@ -1,0 +1,6 @@
+{__("Hi")} {$receiver['name']},
+
+{if !$notification['system_notification']}{$user->_data['name']}{/if} {$notification['message']}
+{$notification['url']}
+
+{__($system['system_title'])} {__("Team")}

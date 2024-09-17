@@ -1,0 +1,7 @@
+{
+ "name": "triggeredautocomplete",
+ "version": "1.0.0",
+ "description": "This widget lets you search for users to @mention in your posts. It works very much like Facebook and Google+ in that it supports users with spaces in their name. It writes to a hidden field with the user ID's formatted in this way: @[12345] while showing @username in the input box. You can save the encoded string for easier parsing at display time.",
+ "main": "jquery-ui.triggeredAutocomplete.js",
+ "license": "MIT"
+}
