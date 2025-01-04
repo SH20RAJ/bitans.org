@@ -1,0 +1,23 @@
+--- index.php	2024-01-04 11:03:01.000000000 +0530
++++ index.php	2024-01-04 11:03:01.000000000 +0530
+@@ -57,7 +57,19 @@
+       }
+ 
+       // get posts (newsfeed)
+-      $posts = ($selected_country) ? $user->get_posts(['country' => $selected_country['country_id']]) : $user->get_posts();
++      if ($selected_country) {
++        $posts = $user->get_posts(['country' => $selected_country['country_id']]);
++      } else {
++        // Get random posts for feed
++        require_once(ABSPATH.'includes/functions/feed.php');
++        $query = get_feed_posts_query();
++        $get_posts = $db->query($query) or _error('SQL_ERROR_THROWEN');
++        $posts = array();
++        if ($get_posts->num_rows > 0) {
++          while ($post = $get_posts->fetch_assoc()) {
++            $posts[] = $user->get_post($post['post_id'], true, true);
++          }
++        }
++      }
+       /* assign variables */
+       $smarty->assign('posts', $posts);
