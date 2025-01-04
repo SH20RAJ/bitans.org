@@ -144,32 +144,6 @@
         </div>
       </div>
     </div>
-    <script>
-      {literal}
-      $(function() {
-        if (!window.location.search.includes('country=')) {
-          window.location.href = '/?country=India';
-        }
-      });
-      {/literal}
-    </script>
-      <a href="#" data-bs-toggle="dropdown" class="countries-filter">
-        <i class="fa fa-globe fa-fw"></i>
-        <span>{if $selected_country}{$selected_country['country_name']}{else}{__("India")}{/if}</span>
-      </a>
-      <div class="dropdown-menu dropdown-menu-end countries-dropdown">
-        <div class="js_scroller">
-          <a class="dropdown-item" href="?country=all">
-            {__("All Countries")}
-          </a>
-          {foreach $countries as $country}
-            <a class="dropdown-item" href="?country={$country['country_name_native']}">
-              {$country['country_name']}
-            </a>
-          {/foreach}
-        </div>
-      </div>
-    </div>
   {/if}
   <!-- newsfeed location filter -->
 </div>
