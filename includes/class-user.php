@@ -6887,8 +6887,7 @@ class User
     $offset *= $max_results;
     $get_all = !isset($args['get_all']) ? false : true;
     /* prepare query */
-    $order_query = ($random) ? "ORDER BY RAND()" : "ORDER BY posts.post_id DESC";
-    $where_query = "";
+    $order_query = (isset($_SESSION['posts_order']) && $_SESSION['posts_order'] == 'random') ? "ORDER BY RAND()" : "ORDER BY posts.post_id DESC";    $where_query = "";
     /* get posts */
     switch ($get) {
       case 'newsfeed':
