@@ -132,7 +132,7 @@
         {if $selected_country}
           <span>{$selected_country['country_name']}</span>
         {else}
-          <span>{__("All Countries")}</span>
+          <span>{if $selected_country}{$selected_country['country_name']}{else}{__("India")}{/if}</span>
         {/if}
       </a>
       <div class="dropdown-menu dropdown-menu-end countries-dropdown">
