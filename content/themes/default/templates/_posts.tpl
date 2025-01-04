@@ -129,11 +129,7 @@
     <div class="float-end mr10">
       <a href="#" data-bs-toggle="dropdown" class="countries-filter">
         <i class="fa fa-globe fa-fw"></i>
-        {if $selected_country}
-          <span>{$selected_country['country_name']}</span>
-        {else}
-          <span>{if $selected_country}{$selected_country['country_name']}{elseif !$_filter}{__("India")}{else}{__("All Countries")}{/if}</span>
-        {/if}
+        <span>{if $selected_country}{$selected_country['country_name']}{else}{__("India")}{/if}</span>
       </a>
       <div class="dropdown-menu dropdown-menu-end countries-dropdown">
         <div class="js_scroller">
@@ -183,7 +179,7 @@
 <!-- posts staging -->
 
 <!-- posts stream -->
-<div class="js_posts_stream" data-get="{$_get}" data-filter="{if $_filter}{$_filter}{else}all{/if}" data-country="{if $selected_country}{$selected_country['country_id']}{else}all{/if}" {if $_id}data-id="{$_id}" {/if}>
+<div class="js_posts_stream" data-get="{$_get}" data-filter="{if $_filter}{$_filter}{else}all{/if}" data-country="{if $selected_country}{$selected_country['country_id']}{else}India{/if}" {if $_id}data-id="{$_id}" {/if}>
   {if $posts}
     <ul>
       <!-- posts -->
@@ -194,13 +190,13 @@
     </ul>
 
     <!-- see-more -->
-    <div class="alert alert-post see-more mb20 js_see-more js_see-more-infinite" data-get="{$_get}" data-filter="{if $_filter}{$_filter}{else}all{/if}" data-country="{if $selected_country}{$selected_country['country_id']}{else}all{/if}" {if $_id}data-id="{$_id}" {/if}>
+    <div class="alert alert-post see-more mb20 js_see-more js_see-more-infinite" data-get="{$_get}" data-filter="{if $_filter}{$_filter}{else}all{/if}" data-country="{if $selected_country}{$selected_country['country_id']}{else}India{/if}" {if $_id}data-id="{$_id}" {/if}>
       <span>{__("More Stories")}</span>
       <div class="loader loader_small x-hidden"></div>
     </div>
     <!-- see-more -->
   {else}
-    <div class="js_posts_stream" data-get="{$_get}" data-filter="{if $_filter}{$_filter}{else}all{/if}" data-country="{if $selected_country}{$selected_country['country_id']}{else}all{/if}" {if $_id}data-id="{$_id}" {/if}>
+    <div class="js_posts_stream" data-get="{$_get}" data-filter="{if $_filter}{$_filter}{else}all{/if}" data-country="{if $selected_country}{$selected_country['country_id']}{else}India{/if}" {if $_id}data-id="{$_id}" {/if}>
       <ul>
         {include file='_no_data.tpl'}
       </ul>
@@ -208,3 +204,13 @@
   {/if}
 </div>
 <!-- posts stream -->
+
+<script>
+  {literal}
+  $(function() {
+    if (!window.location.search.includes('country=')) {
+      window.location.href = '/?country=India';
+    }
+  });
+  {/literal}
+</script>
