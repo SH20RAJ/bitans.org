@@ -6887,7 +6887,7 @@ class User
     $offset *= $max_results;
     $get_all = !isset($args['get_all']) ? false : true;
     /* prepare query */
-    $order_query = "ORDER BY posts.post_id DESC";
+    $order_query = "ORDER BY RAND()" || "ORDER BY posts.post_id DESC";
     $where_query = "";
     /* get posts */
     switch ($get) {
