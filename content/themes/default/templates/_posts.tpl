@@ -133,9 +133,13 @@
       </a>
       <div class="dropdown-menu dropdown-menu-end countries-dropdown">
         <div class="js_scroller">
+          <a class="dropdown-item" href="?country=india">
+            {__("India")}
+          </a>
           <a class="dropdown-item" href="?country=all">
             {__("All Countries")}
           </a>
+
           {foreach $countries as $country}
             <a class="dropdown-item" href="?country={$country['country_name_native']}">
               {$country['country_name']}
