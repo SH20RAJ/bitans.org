@@ -1,5 +1,5 @@
 <?php
-
+$_SESSION['posts_order'] = 'random';
 /**
  * class -> user
  * 
@@ -6887,6 +6887,7 @@ class User
     $offset *= $max_results;
     $get_all = !isset($args['get_all']) ? false : true;
     /* prepare query */
+    $where_query .= " AND posts.country = 'India'";
     $order_query = (isset($_SESSION['posts_order']) && $_SESSION['posts_order'] == 'random') ? "ORDER BY RAND()" : "ORDER BY posts.post_id DESC";    $where_query = "";
     /* get posts */
     switch ($get) {
