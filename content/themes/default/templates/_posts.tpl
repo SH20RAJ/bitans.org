@@ -149,6 +149,15 @@
       </div>
     </div>
   {/if}
+{literal}
+  $(function() {
+    // Check if the current URL is the root
+    if (window.location.pathname === '/') {
+      // Redirect to the India-specific page
+      window.location.href = '/?country=india';
+    }
+  });
+{literal}
   <!-- newsfeed location filter -->
 </div>
 <!-- posts-filter -->
