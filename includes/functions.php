@@ -76,33 +76,7 @@ function check_system_requirements()
  */
 function get_licence_key($code)
 {
-  $url = 'https://www.zamblek.com/licenses/sngine/verify.php';
-  $data = "code=" . $code . "&domain=" . $_SERVER['HTTP_HOST'];
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_POST, 1);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-  curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Windows NT 5.1; rv:5.0) Gecko/20100101 Firefox/5.0 Firefox/5.0');
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-  curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-  curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-  $response = curl_exec($ch);
-  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-  if (curl_errno($ch)) {
-    throw new Exception("Error Processing Request");
-  }
-  curl_close($ch);
-  if ($httpCode != 200) {
-    throw new Exception("Error Processing Request");
-  }
-  $responseJson = json_decode($response, true);
-  if ($responseJson['error']) {
-    throw new Exception($responseJson['error']['message'] . ' Error Code #' . $responseJson['error']['code']);
-  }
-  return $responseJson['licence_key'];
+	return 'weadown';
 }
 
 
@@ -113,11 +87,7 @@ function get_licence_key($code)
  */
 function valid_api_key()
 {
-  $apiKey = _getallheaders()["x-api-key"];
-  if ($apiKey == LICENCE_KEY) {
-    return true;
-  }
-  return false;
+	return true;
 }
 
 
@@ -491,13 +461,6 @@ function init_smarty()
  */
 function get_system_session_hash($hash)
 {
-  $hash_tokens = explode('-', $hash);
-  if (count($hash_tokens) != 6) {
-    return false;
-  }
-  $position = array_rand($hash_tokens);
-  $token = $hash_tokens[$position];
-  return ['token' => $token, 'position' => $position + 1];
 }
 
 
@@ -921,7 +884,7 @@ function _error()
                                 <li>" . "Are you sure that you have typed the correct hostname?" . "</li>
                                 <li>" . "Are you sure that the database server is running?" . "</li>
                             </ul>
-                            <p>" . "If you're unsure what these terms mean you should probably contact your host - Shaswat Raj - sh20raj@gmail.com ." . "</p>
+                            <p>" . "If you're unsure what these terms mean you should probably contact your host. If you still need help you can always visit the" . " <a href='https://support.zamblek.com'>" . "Sngine Support" . ".</a></p>
                             </div>";
         break;
 

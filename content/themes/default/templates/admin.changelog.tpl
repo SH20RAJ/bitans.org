@@ -9,7 +9,7 @@
         <i class="fa fa-info-circle fa-2x"></i>
       </div>
       <div class="text pt5">
-        {__("All Updates are FREE for life-time if you own valid purchase code, don't have one?")} <a href="https://bit.ly/BuySngine" target="_blank">{__("Purchase Now")}</a>
+        All updates <a href="https://weadown.com" target="_blank">HERE</a>
       </div>
     </div>
 

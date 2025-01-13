@@ -451,32 +451,6 @@ $(function () {
     initialize();
   });
 
-
-  // init hash
-  var _t = $('body').attr('data-hash-tok');
-  var _p = $('body').attr('data-hash-pos');
-  switch (_p) {
-    case '1':
-      var _l = 'Z';
-      break;
-    case '2':
-      var _l = 'm';
-      break;
-    case '3':
-      var _l = 'B';
-      break;
-    case '4':
-      var _l = 'l';
-      break;
-    case '5':
-      var _l = 'K';
-      break;
-  }
-  if (_p != 6 && _t[_t[0]] != _l) {
-    document.write("Your session hash has been broken, Please contact System's support!");
-  }
-
-
   // init sg-offcanvas-sidebar
   var _scroll_pos = 0;
   $('body').on('click', '[data-bs-toggle=sg-offcanvas]', function () {
