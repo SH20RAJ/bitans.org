@@ -78,14 +78,6 @@ try {
   _error(__("Error"), $e->getMessage());
 }
 
-
-// get system session hash
-$session_hash = get_system_session_hash($system['session_hash']);
-if (!$session_hash) {
-  // _error(__("Error"), __("Your session hash has been broken, Please contact Sngine's support!"));
-}
-
-
 // init smarty
 global $smarty;
 $smarty = init_smarty();
